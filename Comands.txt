@@ -1,0 +1,5 @@
+// NEW APP REACT
+npx create-react-app basic-app
+
+// RUN APP
+npm start
