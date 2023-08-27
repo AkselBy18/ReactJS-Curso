@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Welcome message="Hola desde promps"/>
+        <Welcome message="Hola desde promps" name="Aksel Herrera"/>
       </header>
     </div>
   );
