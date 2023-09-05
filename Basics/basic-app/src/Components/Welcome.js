@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 export default function Welcome(props) {
     const [counter, setCounter] = useState(0);
     const [traffictLight, setTrafficLight] = useState(false);
-    const {message, name}  = props;
+    const { name}  = props;
 
     useEffect(() => {
         console.log("Status", traffictLight);
