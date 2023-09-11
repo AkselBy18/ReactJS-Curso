@@ -1,2 +1,5 @@
 //CREATE NEW APP WITH EXPO
 npx create-expo-app --template
+
+//START APP
+npx expo start
