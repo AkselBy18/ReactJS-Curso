@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { HomeScreen } from './src/views/Home/Home';
-import { RegisterScreen } from './src/views/Register/Register';
+import { HomeScreen } from './src/Presentation/views/Home/Home';
+import { RegisterScreen } from './src/Presentation/views/Register/Register';
 
 export type RootStackParamsList = {
     HomeScreen: undefined,
@@ -19,7 +19,8 @@ const App = () => {
       }}>
         <Stack.Screen
           name="HomeScreen"
-          component={HomeScreen} />
+          component={HomeScreen}
+        />
         <Stack.Screen 
           name="RegisterScreen" 
           component={RegisterScreen}

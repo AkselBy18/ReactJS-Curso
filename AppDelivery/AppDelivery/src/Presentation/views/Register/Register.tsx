@@ -1,18 +1,18 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
-import { MyColors } from '../../theme/AppTheme';
 import { RoundedButton } from '../../components/RoundedButton';
+import { MyColors } from '../../theme/AppTheme';
 
 export const RegisterScreen = () => {
   return (
     <View style={styles.container}>
         <Image
-          source={ require("../../../assets/chef.jpg")}
+          source={ require("../../../../assets/chef.jpg")}
           style={ styles.imageBackground }
         />
         <View style={styles.logoContainer}>
           <Image
-            source={require("../../../assets/user_image.png")} 
+            source={require("../../../../assets/user_image.png")} 
             style={styles.logoImage}
           />
           <Text style={styles.logoText}>
@@ -25,7 +25,7 @@ export const RegisterScreen = () => {
           </Text>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/user.png")}
+                source={require("../../../../assets/user.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -36,7 +36,7 @@ export const RegisterScreen = () => {
           </View>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/my_user.png")}
+                source={require("../../../../assets/my_user.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -47,7 +47,7 @@ export const RegisterScreen = () => {
           </View>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/email.png")}
+                source={require("../../../../assets/email.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -58,7 +58,7 @@ export const RegisterScreen = () => {
           </View>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/phone.png")}
+                source={require("../../../../assets/phone.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -69,7 +69,7 @@ export const RegisterScreen = () => {
           </View>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/password.png")}
+                source={require("../../../../assets/password.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -81,7 +81,7 @@ export const RegisterScreen = () => {
           </View>
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/confirm_password.png")}
+                source={require("../../../../assets/confirm_password.png")}
                 style={styles.formIcon}
               />
               <TextInput

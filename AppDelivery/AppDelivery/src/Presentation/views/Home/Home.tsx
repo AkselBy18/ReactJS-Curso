@@ -1,25 +1,27 @@
 import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Image, Text, TextInput, ToastAndroid, View, StyleSheet, Touchable, TouchableOpacity} from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamsList } from '../../../../App';
 import { RoundedButton } from '../../components/RoundedButton';
 import { MyColors } from '../../theme/AppTheme';
-import { RootStackParamsList } from '../../../App';
-import { StackNavigationProp } from '@react-navigation/stack';
+import HomeViewModel from './ViewModel';
 
 export const HomeScreen = () => {
+    // USE VIEW MODEL FOR PROCESS DATA 
+    const { email, password, onChanges} = HomeViewModel();
     //USER NAVIGATION SCREENS
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
     const navigation = useNavigation<StackNavigationProp<RootStackParamsList>>()
+
     return (
     <View style={styles.container}>
         <Image
-          source={ require("../../../assets/chef.jpg")}
+          source={ require("../../../../assets/chef.jpg")}
           style={ styles.imageBackground }
         />
         <View style={styles.logoContainer}>
           <Image
-            source={require("../../../assets/logo.png")} 
+            source={require("../../../../assets/logo.png")} 
             style={styles.logoImage}
           />
           <Text style={styles.logoText}>
@@ -33,7 +35,7 @@ export const HomeScreen = () => {
           {/* INPUT EMAIL */}
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/email.png")}
+                source={require("../../../../assets/email.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -41,13 +43,13 @@ export const HomeScreen = () => {
                 style={styles.formTextImput}
                 keyboardType='email-address'
                 value={ email }
-                onChangeText={textEmail => setEmail(textEmail)}
+                onChangeText={textEmail => onChanges('email', textEmail)}
               />
           </View>
           {/* INPUT PASSWORD */}
           <View style={styles.formInput}>
               <Image
-                source={require("../../../assets/password.png")}
+                source={require("../../../../assets/password.png")}
                 style={styles.formIcon}
               />
               <TextInput
@@ -56,7 +58,7 @@ export const HomeScreen = () => {
                 keyboardType='default'
                 secureTextEntry={true}
                 value={password}
-                onChangeText={textPassword => setPassword(textPassword)}
+                onChangeText={textPassword => onChanges('password', textPassword)}
               />
           </View>
           <View style={{ marginTop : 30 }}>
@@ -66,7 +68,6 @@ export const HomeScreen = () => {
                 onPress={ () => {
                   console.log(email);
                   console.log(password);
-                  
                 }}
               />
           </View>
