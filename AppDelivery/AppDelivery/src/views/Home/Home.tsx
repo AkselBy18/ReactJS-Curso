@@ -16,7 +16,7 @@ export const HomeScreen = () => {
             style={ styles.imageBackground } />
         <View style={styles.logoContainer}>
         <Image
-            source={require("../../../assets/icon.png")} 
+            source={require("../../../assets/logo.png")} 
             style={styles.logoImage}/>
         <Text style={styles.logoText}>
             FOOD APP
