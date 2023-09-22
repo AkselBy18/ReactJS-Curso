@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useNavigation } from '@react-navigation/native'
 import { Image, Text, TextInput, ToastAndroid, View, StyleSheet, Touchable, TouchableOpacity} from 'react-native';
 import { RoundedButton } from '../../components/RoundedButton';
@@ -8,55 +8,74 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 export const HomeScreen = () => {
     //USER NAVIGATION SCREENS
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const navigation = useNavigation<StackNavigationProp<RootStackParamsList>>()
     return (
     <View style={styles.container}>
         <Image
-            source={ require("../../../assets/chef.jpg")}
-            style={ styles.imageBackground } />
+          source={ require("../../../assets/chef.jpg")}
+          style={ styles.imageBackground }
+        />
         <View style={styles.logoContainer}>
-        <Image
+          <Image
             source={require("../../../assets/logo.png")} 
-            style={styles.logoImage}/>
-        <Text style={styles.logoText}>
-            FOOD APP
-        </Text>
+            style={styles.logoImage}
+          />
+          <Text style={styles.logoText}>
+              FOOD APP
+          </Text>
         </View>
         <View style={styles.form}>
-        <Text style={styles.textForm}>
-            INGRESAR
-        </Text>
-        <View style={styles.formInput}>
-            <Image
-            source={require("../../../assets/email.png")}
-            style={styles.formIcon} />
-            <TextInput
-            placeholder='Corrreo electronico'
-            style={styles.formTextImput}
-            keyboardType='email-address' />
-        </View>
-        <View style={styles.formInput}>
-            <Image
-            source={require("../../../assets/password.png")}
-
-            style={styles.formIcon}/>
-            <TextInput
-            placeholder='Contraseña'
-            style={styles.formTextImput}
-            keyboardType='default'
-            secureTextEntry={true} />
-        </View>
-        <View style={{ marginTop : 30 }}>
-            <RoundedButton
-            text='Entrar'
-            onPress={ () => ToastAndroid.show('HOLA', ToastAndroid.SHORT)}/>
-        </View>
-        <View style={styles.formRegister}>
-            <Text>¿No tienes cuenta?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-                <Text style={styles.registreText}>Registrate</Text>
-            </TouchableOpacity>
-        </View>
+          <Text style={styles.textForm}>
+              INGRESAR
+          </Text>
+          {/* INPUT EMAIL */}
+          <View style={styles.formInput}>
+              <Image
+                source={require("../../../assets/email.png")}
+                style={styles.formIcon}
+              />
+              <TextInput
+                placeholder='Corrreo electronico'
+                style={styles.formTextImput}
+                keyboardType='email-address'
+                value={ email }
+                onChangeText={textEmail => setEmail(textEmail)}
+              />
+          </View>
+          {/* INPUT PASSWORD */}
+          <View style={styles.formInput}>
+              <Image
+                source={require("../../../assets/password.png")}
+                style={styles.formIcon}
+              />
+              <TextInput
+                placeholder='Contraseña'
+                style={styles.formTextImput}
+                keyboardType='default'
+                secureTextEntry={true}
+                value={password}
+                onChangeText={textPassword => setPassword(textPassword)}
+              />
+          </View>
+          <View style={{ marginTop : 30 }}>
+              {/* CUSTOM COMPONENTE  */}
+              <RoundedButton
+                text='Entrar'
+                onPress={ () => {
+                  console.log(email);
+                  console.log(password);
+                  
+                }}
+              />
+          </View>
+          <View style={styles.formRegister}>
+              <Text>¿No tienes cuenta?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+                  <Text style={styles.registreText}>Registrate</Text>
+              </TouchableOpacity>
+          </View>
         </View>
     </View>
     );
