@@ -6,6 +6,7 @@ import { RootStackParamsList } from '../../../../App';
 import { RoundedButton } from '../../components/RoundedButton';
 import { MyColors } from '../../theme/AppTheme';
 import HomeViewModel from './ViewModel';
+import { CustomTextInput } from '../../components/CustomTextInput';
 
 export const HomeScreen = () => {
     // USE VIEW MODEL FOR PROCESS DATA 
@@ -33,34 +34,24 @@ export const HomeScreen = () => {
               INGRESAR
           </Text>
           {/* INPUT EMAIL */}
-          <View style={styles.formInput}>
-              <Image
-                source={require("../../../../assets/email.png")}
-                style={styles.formIcon}
-              />
-              <TextInput
-                placeholder='Corrreo electronico'
-                style={styles.formTextImput}
-                keyboardType='email-address'
-                value={ email }
-                onChangeText={textEmail => onChanges('email', textEmail)}
-              />
-          </View>
+          <CustomTextInput
+            image = { require('../../../../assets/email.png') }
+            placeholder = 'Correo electronico'
+            keyboarType = 'email-address'
+            property = 'email'
+            onChangeText = { onChanges }
+            value = { email }
+            />
           {/* INPUT PASSWORD */}
-          <View style={styles.formInput}>
-              <Image
-                source={require("../../../../assets/password.png")}
-                style={styles.formIcon}
-              />
-              <TextInput
-                placeholder='Contraseña'
-                style={styles.formTextImput}
-                keyboardType='default'
-                secureTextEntry={true}
-                value={password}
-                onChangeText={textPassword => onChanges('password', textPassword)}
-              />
-          </View>
+          <CustomTextInput
+            image = {require("../../../../assets/password.png")}
+            placeholder = 'Password'
+            keyboarType = 'default'
+            property = 'password'
+            onChangeText = { onChanges }
+            value = { password }
+            secureTextEntry = {true}
+            />
           <View style={{ marginTop : 30 }}>
               {/* CUSTOM COMPONENTE  */}
               <RoundedButton
