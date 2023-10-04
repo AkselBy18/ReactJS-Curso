@@ -4,28 +4,29 @@ import { RoundedButton } from '../../components/RoundedButton';
 import { MyColors } from '../../theme/AppTheme';
 import useRegisterViewModel from './ViewModel';
 import { CustomTextInput } from '../../components/CustomTextInput';
+import RegisterStyle from './Styles';
 
 export const RegisterScreen = () => {
 
   const { name, lastname, email, phone, password, confimPassword, onChange, register } = useRegisterViewModel();
 
   return (
-    <View style={styles.container}>
+    <View style={RegisterStyle.container}>
         <Image
           source={ require("../../../../assets/chef.jpg")}
-          style={ styles.imageBackground }
+          style={ RegisterStyle.imageBackground }
         />
-        <View style={styles.logoContainer}>
+        <View style={RegisterStyle.logoContainer}>
           <Image
             source={require("../../../../assets/user_image.png")} 
-            style={styles.logoImage}
+            style={RegisterStyle.logoImage}
           />
-          <Text style={styles.logoText}>
+          <Text style={RegisterStyle.logoText}>
               Seleccione una imgaen
           </Text>
         </View>
-        <View style={styles.form}>
-          <Text style={styles.textForm}>
+        <View style={RegisterStyle.form}>
+          <Text style={RegisterStyle.textForm}>
               Registrate
           </Text>
           <CustomTextInput
@@ -88,83 +89,3 @@ export const RegisterScreen = () => {
     </View>
     );
 }
-    //VIEW STYLES
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#000',
-      },
-      imageBackground: {
-        width: '100%',
-        height: '100%',
-        opacity: 0.5,
-        bottom: '30%'
-      },
-      form: {
-        width: '100%',
-        height: '70%',
-        backgroundColor: '#FFF',
-        position: 'absolute',
-        bottom: 0,
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        padding: 30
-      },
-      textForm: {
-        fontWeight: 'bold',
-        fontSize: 16
-      },
-      formInput: {
-        flexDirection: 'row',
-        marginTop: 30
-      },
-      formTextImput:{
-        flex: 1,
-        borderBottomWidth: 1,
-        borderBottomColor: MyColors.background,
-        marginLeft: 15
-      },
-      formIcon: {
-        width: 25,
-        height: 25,
-        marginTop: 5
-      },
-      formRegister: {
-        flexDirection: 'row',
-        marginTop: 10,
-        justifyContent: 'center'
-      },
-      logoContainer: {
-        position: 'absolute',
-        alignSelf: 'center',
-        alignItems: 'center',
-        top: '5%'
-      },
-      logoImage: {
-        width: 100,
-        height: 100
-      },
-      logoText: {
-        color: '#FFF',
-        textAlign: 'center',
-        fontSize: 20,
-        marginTop: 10,
-        fontWeight: 'bold'
-      },
-      registreText: {
-        fontStyle: 'italic',
-        color: MyColors.primary,
-        borderBottomWidth: 1,
-        borderBottomColor: MyColors.primary,
-        fontWeight: 'bold',
-        marginLeft: 10
-      }
-    });
-    
-    /* DEFUALT BUTTON */
-    /* 
-     <Button
-        title='Entrar'
-        onPress={() => ToastAndroid.show('CLICK', ToastAndroid.LONG)} 
-        color='orange' />
-    */
